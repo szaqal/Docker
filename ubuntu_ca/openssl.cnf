@@ -1,0 +1,36 @@
+[ ca ]
+default_ca      	= CA_default
+
+[ CA_default ]
+dir             	= /openssl
+
+certs			= $dir/certs
+new_certs_dir		= $certs
+database		= $dir/index.txt
+certificate		= $dir/cert/rootCA.pem
+private_key		= $dir/cert/rootCA.key
+serial			= $dir/serial
+crldir			= $dir/crl
+crlnumber		= $dir/crlnumber
+crl			= $crldir/crl.pem
+default_days    	= 365
+default_crl_days	= 30
+
+policy			= policy_match
+
+[req]
+distinguished_name      = req_distinguished_name
+
+[ req_distinguished_name ]
+organizationName			= szaqal inc
+organizationalUnitName			= engineering
+emailAddress				= szaqal@testinc.com 
+emailAddress_max			= 40
+localityName				= Krakow
+stateOrProvinceName			= MP
+countryName				= PL
+countryName_min				= 2
+countryName_max				= 2
+commonName				= szakal
+commonName_max				= 64
+
