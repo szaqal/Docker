@@ -13,7 +13,7 @@ RUN mkdir -p /openssl/crl
 RUN mkdir -p /openssl/crlnumber
 ADD openssl.cnf /openssl/conf/openssl.cnf
 
-ENV OPENSSL_CONF=/openssl/conf/openssl.cnf
+ENV OPENSSL_CONF /openssl/conf/openssl.cnf
 
 #Private key
 RUN openssl genrsa -des3 -passout pass:dupa1234 -out /openssl/certs/rootCA.key
