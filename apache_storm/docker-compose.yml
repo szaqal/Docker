@@ -1,0 +1,40 @@
+version: '2'
+services:
+  zookeeper:
+    image: zookeeper:3.4
+    container_name: zookeeper
+    restart: always
+  nimbus:
+    build: ./storm 
+    container_name: nimbus
+    command: storm nimbus
+    depends_on:
+      - zookeeper
+    links:
+      - zookeeper
+    restart: always
+    ports:
+      - 6627:6627
+  supervisor:
+    build: ./storm 
+    container_name: supervisor
+    command: storm supervisor -c nimbus.host=nimbus 
+    depends_on:
+      - nimbus
+      - zookeeper
+    links:
+      - "nimbus:nimbus"
+      - "zookeeper:zookeeper"
+    volumes:    
+       - ./logs:/logs  
+    restart: always
+  ui:          
+    build: ./storm 
+    container_name: ui        
+    command: storm ui -c nimbus.host=nimbus
+    depends_on:
+      - nimbus
+    links:
+      - "nimbus:nimbus"
+    ports:
+      - 8080:8080       
