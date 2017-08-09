@@ -4,6 +4,7 @@ FROM ubuntu:14.04
 RUN apt-get clean \
 	&& apt-get update \
 	&&  apt-get install -y \
+        vim \
 	xvfb \
   	x11-xkb-utils \
   	xfonts-100dpi \
@@ -31,7 +32,6 @@ RUN apt-get update && apt-get install -y nodejs
 
 # Add nightmare js files
 RUN [ -d /nightmarejs ] || mkdir /nightmarejs 
-VOLUME /nightmarejs
 
 COPY entrypoint.sh /entrypoint
 RUN chmod +x /entrypoint
