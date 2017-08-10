@@ -38,6 +38,6 @@ RUN chmod +x /entrypoint
 
 ADD example.js /nightmarejs
 
-RUN cd /nightmarejs && npm install nightmare
+RUN cd /nightmarejs && npm install nightmare && npm install vo
 
 ENTRYPOINT ["/entrypoint"]
