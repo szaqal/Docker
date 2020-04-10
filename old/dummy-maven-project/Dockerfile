@@ -5,3 +5,4 @@ RUN mvn archetype:generate -Dversion=1.0.0-SNAPSHOT -DinteractiveMode=false  -Da
 
 
 ADD generate.sh /generate.sh
+CMD /generate.sh

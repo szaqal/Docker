@@ -1,5 +1,7 @@
 #!/bin/bash
 
+rm -fr dummy/
+
 mvn archetype:generate \
 	-Dversion=1.0.0-SNAPSHOT \
 	-DinteractiveMode=false  \
