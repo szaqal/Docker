@@ -7,4 +7,4 @@ mvn archetype:generate \
 	-DgroupId=com.dummy \
 	-DarchetypeGroupId=org.apache.maven.archetypes \
 	-DarchetypeArtifactId=maven-archetype-quickstart \
-	-DarchetypeVersion=1.40
+	-DarchetypeVersion=1.4
